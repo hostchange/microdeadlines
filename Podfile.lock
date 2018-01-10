@@ -1,0 +1,26 @@
+PODS:
+  - Each (1.2.0)
+  - MKRingProgressView (1.1.4)
+  - Realm (3.0.2):
+    - Realm/Headers (= 3.0.2)
+  - Realm/Headers (3.0.2)
+  - RealmSwift (3.0.2):
+    - Realm (= 3.0.2)
+  - SwiftyTimer (2.0.0)
+
+DEPENDENCIES:
+  - Each
+  - MKRingProgressView
+  - RealmSwift
+  - SwiftyTimer
+
+SPEC CHECKSUMS:
+  Each: 53d089bc231f4a7221ed201bf23ac343c5c4d560
+  MKRingProgressView: fbcfe6e5485404fc4e4bc3becbed4a1c8c7df715
+  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
+  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
+  SwiftyTimer: 2efd74b060d69ad4f1496baf5bbedbe132125fcf
+
+PODFILE CHECKSUM: fbc863510ad5f60e88c4a8e808bdeda7307e4f63
+
+COCOAPODS: 1.3.1
