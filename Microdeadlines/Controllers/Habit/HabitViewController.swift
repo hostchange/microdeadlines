@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class TaskViewController: UIViewController {
+class HabitViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -80,11 +80,22 @@ class TaskViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.Segues.TaskToTaskProgress {
-            if let taskProgressViewController = segue.destination as? TaskProgressViewController {
-                guard let selectedTask = selectedTask else { return }
-                taskProgressViewController.task = selectedTask
-            }
+        guard let identifier = segue.identifier,
+            let selectedTask = selectedTask
+            else { return }
+        
+        switch identifier {
+        case Constants.Segues.TaskToTaskProgress:
+            guard let taskProgressViewController = segue.destination as? TaskProgressViewController else { return }
+            taskProgressViewController.task = selectedTask
+            return
+        case Constants.Segues.HabitToEditHabit:
+            guard let navigationController = segue.destination as? UINavigationController,
+                let editHabitViewController = navigationController.topViewController as? EditHabitViewController else { return }
+            editHabitViewController.task = selectedTask
+            return
+        default:
+            return
         }
     }
 
@@ -93,16 +104,28 @@ class TaskViewController: UIViewController {
     }
 }
 
-extension TaskViewController: UITableViewDelegate {
+extension HabitViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let task = Array(tasks)[indexPath.row]
-        try! realm.write {
-            realm.delete(task)
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            try! self.realm.write {
+                self.realm.delete(task)
+            }
         }
+        
+        let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+            let task = self.tasks[indexPath.row]
+            self.selectedTask = task
+            self.performSegue(withIdentifier: Constants.Segues.HabitToEditHabit, sender: nil)
+        }
+        
+        edit.backgroundColor = UIColor.green
+        
+        return [delete, edit]
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -110,9 +133,18 @@ extension TaskViewController: UITableViewDelegate {
         selectedTask = task
         performSegue(withIdentifier: Constants.Segues.TaskToTaskProgress, sender: nil)
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Pomodoro Productivity"
+    }
+    
 }
 
-extension TaskViewController: UITableViewDataSource {
+extension HabitViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
@@ -124,6 +156,10 @@ extension TaskViewController: UITableViewDataSource {
             return cell
         }
         return TaskTableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
     
 }

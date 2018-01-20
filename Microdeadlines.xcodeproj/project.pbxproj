@@ -12,7 +12,8 @@
 		6302301B1FDCE1B600B9747C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6302301A1FDCE1B600B9747C /* Assets.xcassets */; };
 		6302301E1FDCE1B600B9747C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6302301C1FDCE1B600B9747C /* LaunchScreen.storyboard */; };
 		630230271FDCE36100B9747C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630230261FDCE36100B9747C /* Constants.swift */; };
-		6342BF091FDCF239001E2D0C /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342BF081FDCF239001E2D0C /* TaskViewController.swift */; };
+		631E29C02013BAE10023E5F2 /* EditHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631E29BF2013BAE10023E5F2 /* EditHabitViewController.swift */; };
+		6342BF091FDCF239001E2D0C /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342BF081FDCF239001E2D0C /* HabitViewController.swift */; };
 		6342BF0B1FDCF4C8001E2D0C /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342BF0A1FDCF4C8001E2D0C /* TaskTableViewCell.swift */; };
 		6342BF0E1FDCF778001E2D0C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6342BF0D1FDCF778001E2D0C /* Task.swift */; };
 		639E167C1FDCFCAB007AACB2 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E167B1FDCFCAB007AACB2 /* AddTaskViewController.swift */; };
@@ -31,7 +32,8 @@
 		6302301D1FDCE1B600B9747C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6302301F1FDCE1B600B9747C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		630230261FDCE36100B9747C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		6342BF081FDCF239001E2D0C /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
+		631E29BF2013BAE10023E5F2 /* EditHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHabitViewController.swift; sourceTree = "<group>"; };
+		6342BF081FDCF239001E2D0C /* HabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewController.swift; sourceTree = "<group>"; };
 		6342BF0A1FDCF4C8001E2D0C /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		6342BF0D1FDCF778001E2D0C /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		639E167B1FDCFCAB007AACB2 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
@@ -104,8 +106,7 @@
 		6302302C1FDCE7CC00B9747C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6342BF081FDCF239001E2D0C /* TaskViewController.swift */,
-				639E167B1FDCFCAB007AACB2 /* AddTaskViewController.swift */,
+				631E29BC2013BA9B0023E5F2 /* Habit */,
 				639E16811FDD0D5B007AACB2 /* TaskProgressViewController.swift */,
 			);
 			path = Controllers;
@@ -135,6 +136,16 @@
 				630230131FDCE1B600B9747C /* AppDelegate.swift */,
 			);
 			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		631E29BC2013BA9B0023E5F2 /* Habit */ = {
+			isa = PBXGroup;
+			children = (
+				6342BF081FDCF239001E2D0C /* HabitViewController.swift */,
+				639E167B1FDCFCAB007AACB2 /* AddTaskViewController.swift */,
+				631E29BF2013BAE10023E5F2 /* EditHabitViewController.swift */,
+			);
+			path = Habit;
 			sourceTree = "<group>";
 		};
 		69C42696002D7258B72098B2 /* Frameworks */ = {
@@ -291,12 +302,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6342BF091FDCF239001E2D0C /* TaskViewController.swift in Sources */,
+				6342BF091FDCF239001E2D0C /* HabitViewController.swift in Sources */,
 				639E167C1FDCFCAB007AACB2 /* AddTaskViewController.swift in Sources */,
 				6342BF0B1FDCF4C8001E2D0C /* TaskTableViewCell.swift in Sources */,
 				6342BF0E1FDCF778001E2D0C /* Task.swift in Sources */,
 				639E16821FDD0D5B007AACB2 /* TaskProgressViewController.swift in Sources */,
 				630230141FDCE1B600B9747C /* AppDelegate.swift in Sources */,
+				631E29C02013BAE10023E5F2 /* EditHabitViewController.swift in Sources */,
 				630230271FDCE36100B9747C /* Constants.swift in Sources */,
 				639E167F1FDD0553007AACB2 /* Extensions.swift in Sources */,
 			);
@@ -439,7 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3V8EPWEYFE;
 				INFOPLIST_FILE = "$(SRCROOT)/Microdeadlines/Utils/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayvenn.app.Microdeadline;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -456,7 +468,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3V8EPWEYFE;
 				INFOPLIST_FILE = "$(SRCROOT)/Microdeadlines/Utils/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jayvenn.app.Microdeadline;
 				PRODUCT_NAME = "$(TARGET_NAME)";

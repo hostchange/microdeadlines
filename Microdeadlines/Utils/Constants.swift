@@ -19,6 +19,7 @@ struct Constants {
         // MARK: Authentication - Welcome
         static let TaskToAddTask = "TaskToAddTask"
         static let TaskToTaskProgress = "TaskToTaskProgress"
+        static let HabitToEditHabit = "HabitToEditHabit"
     }
     
     // MARK: Collection View Cell Identifiers
