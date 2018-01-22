@@ -41,7 +41,7 @@ class EditHabitViewController: UIViewController {
         nameTextField.text = task.name
         let time = task.countDownTimeInMinutes
         timeLabel.text = "\(time) MIN"
-        slider.value = Float(time)g
+        slider.value = Float(time)
     }
     
     @IBAction func sliderValueDidChange(_ sender: UISlider) {

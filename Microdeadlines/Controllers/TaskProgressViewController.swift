@@ -21,6 +21,8 @@ class TaskProgressViewController: UIViewController {
     let timer = Each(1).seconds
     let shapeLayer = CAShapeLayer()
     var task: Task!
+    var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+
     
     var pulsatingLayer = CAShapeLayer()
     
@@ -87,5 +89,20 @@ class TaskProgressViewController: UIViewController {
     @IBAction func startButtonDidTouch(_ sender: UIButton) {
         startButton.isEnabled = false
         startTimer()
+        registerBackgroundTask()
     }
+    
+    func registerBackgroundTask() {
+        backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+            self?.endBackgroundTask()
+        }
+        assert(backgroundTask != UIBackgroundTaskInvalid)
+    }
+    
+    func endBackgroundTask() {
+        print("Background task ended.")
+        UIApplication.shared.endBackgroundTask(backgroundTask)
+        backgroundTask = UIBackgroundTaskInvalid
+    }
+    
 }
