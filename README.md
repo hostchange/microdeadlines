@@ -7,6 +7,8 @@ Each us everyday have blocks in our schedule. We typically don't have a complete
 
 Essentially, we are a glorified timer app, that already figures out all the hard work in allocating time towards a habit. In 5 seconds, or less you can go from either building a habit or picking an habit from our store, to practicing it. 
 
+The individuals too lazy to set their own timer everytime for habits are the ones who need it the most.
+
 Don't overthink, just do/start (today). 
 
 Microdeadlines for your day, microhabits for your lifestyle.
