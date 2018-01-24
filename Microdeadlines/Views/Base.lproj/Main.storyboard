@@ -37,15 +37,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="HABIT" largeTitleDisplayMode="always" id="OqS-Xj-QXM">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="j09-PK-c5B">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="addTaskButtonItemDidTouch:" destination="BYZ-38-t0r" id="z7I-jL-1d6"/>
-                                <segue destination="JIN-OG-grv" kind="modal" identifier="HabitToAddHabit" id="SzR-vc-mIq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="HABIT" largeTitleDisplayMode="always" id="OqS-Xj-QXM"/>
                     <connections>
                         <outlet property="tableView" destination="D3S-Y4-1MO" id="Lo4-30-fEx"/>
                         <segue destination="WWX-hu-cf8" kind="show" identifier="TaskToTaskProgress" id="ZwV-hk-yrp"/>
@@ -144,6 +136,7 @@ MIN</string>
                         <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="Mj6-E2-Ybl" kind="relationship" relationship="viewControllers" id="K31-cV-yID"/>
                         <segue destination="mYL-ge-7tL" kind="relationship" relationship="viewControllers" id="Tzu-L2-8qY"/>
                         <segue destination="QbU-yN-hBg" kind="relationship" relationship="viewControllers" id="gqY-Bx-Vl9"/>
                     </connections>
@@ -445,11 +438,27 @@ MIN</string>
             </objects>
             <point key="canvasLocation" x="430" y="1576"/>
         </scene>
-        <!--Store-->
+        <!--STORY-->
+        <scene sceneID="bYM-hz-wAK">
+            <objects>
+                <viewController id="og6-nq-ptY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bw9-iC-hjN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="aOv-zo-QQj"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="STORY" largeTitleDisplayMode="always" id="7wR-3Y-h4S"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r3G-Lv-FVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="430" y="2262"/>
+        </scene>
+        <!--STORE-->
         <scene sceneID="ehQ-vd-RHz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QbU-yN-hBg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Store" image="store" id="kug-Xs-pTY"/>
+                    <tabBarItem key="tabBarItem" title="STORE" image="store" id="kug-Xs-pTY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="zfb-Zj-ApN">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -465,9 +474,30 @@ MIN</string>
             </objects>
             <point key="canvasLocation" x="-327" y="1576"/>
         </scene>
+        <!--STORY-->
+        <scene sceneID="h8A-W8-Y9J">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mj6-E2-Ybl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="STORY" image="story" id="fna-xO-LO6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="O51-Ww-Urs">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="og6-nq-ptY" kind="relationship" relationship="rootViewController" id="aZo-9v-3oe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N6C-W2-49l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-327" y="2262"/>
+        </scene>
     </scenes>
     <resources>
         <image name="habit" width="24" height="24"/>
         <image name="store" width="24" height="24"/>
+        <image name="story" width="24" height="24"/>
     </resources>
 </document>
