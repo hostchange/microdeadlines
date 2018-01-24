@@ -17,7 +17,8 @@ struct Constants {
     // MARK: Segues
     struct Segues {
         // MARK: Authentication - Welcome
-        static let TaskToAddTask = "TaskToAddTask"
+        static let HabitToAddHabit = "HabitToAddHabit"
+        static let AddHabitToAddTask = "AddHabitToAddTask"
         static let TaskToTaskProgress = "TaskToTaskProgress"
         static let HabitToEditHabit = "HabitToEditHabit"
     }

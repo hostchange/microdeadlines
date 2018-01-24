@@ -8,14 +8,15 @@
 
 import UIKit
 import RealmSwift
+import Firebase
 
 class HabitViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
-    fileprivate lazy var tasks: Results<Task> =  {
+    
+    fileprivate lazy var habits: Results<Habit> =  {
         let sortProperties = [SortDescriptor(keyPath: "creationDate", ascending: false)]
-        return self.realm.objects(Task.self).sorted(by: sortProperties)
+        return self.realm.objects(Habit.self).sorted(by: sortProperties)
     }()
     
     var taskNotificationToken: NotificationToken?
@@ -40,12 +41,16 @@ class HabitViewController: UIViewController {
     }
     
     func setUpTableView() {
+        let nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        let identifier = Constants.TableViewCellIdentifiers.TaskTableViewCell
+        tableView.register(nib, forCellReuseIdentifier: identifier)
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
     
     func setUpTaskNotification() {
-        taskNotificationToken = tasks.observe { [weak self] changes in
+        taskNotificationToken = habits.observe { [weak self] changes in
             guard let tableView = self?.tableView else { return }
             tableView.applyChanges(changes: changes)
         }
@@ -64,15 +69,20 @@ class HabitViewController: UIViewController {
                 task2.name = "REST"
                 task2.creationDate = Date()
                 task2.numberOfTimesCompleted = 0
-                realm.add(task2)
                 
                 let task1 = Task()
                 task1.countDownTimeInMinutes = 25
                 task1.name = "WORK"
                 task1.creationDate = Date()
                 task1.numberOfTimesCompleted = 0
-                realm.add(task1)
                 
+                let habit = Habit()
+                habit.creationDate = Date()
+                habit.name = "Pomodoro Productivity"
+                habit.tasks.append(task1)
+                habit.tasks.append(task2)
+                
+                realm.add(habit)
             }
             return
         }
@@ -91,7 +101,7 @@ class HabitViewController: UIViewController {
             return
         case Constants.Segues.HabitToEditHabit:
             guard let navigationController = segue.destination as? UINavigationController,
-                let editHabitViewController = navigationController.topViewController as? EditHabitViewController else { return }
+                let editHabitViewController = navigationController.topViewController as? EditTaskViewController else { return }
             editHabitViewController.task = selectedTask
             return
         default:
@@ -100,7 +110,7 @@ class HabitViewController: UIViewController {
     }
 
     @IBAction func addTaskButtonItemDidTouch(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: Constants.Segues.TaskToAddTask, sender: nil)
+        performSegue(withIdentifier: Constants.Segues.HabitToAddHabit, sender: nil)
     }
 }
 
@@ -110,48 +120,51 @@ extension HabitViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let task = Array(tasks)[indexPath.row]
+        let habit = Array(habits)[indexPath.section]
+        let task = habit.tasks[indexPath.row]
+        
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             try! self.realm.write {
                 self.realm.delete(task)
             }
         }
-        
+
         let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
-            let task = self.tasks[indexPath.row]
             self.selectedTask = task
             self.performSegue(withIdentifier: Constants.Segues.HabitToEditHabit, sender: nil)
         }
         
         edit.backgroundColor = UIColor.green
-        
+
         return [delete, edit]
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let task = tasks[indexPath.row]
+        let habit = Array(habits)[indexPath.section]
+        let task = habit.tasks[indexPath.row]
         selectedTask = task
         performSegue(withIdentifier: Constants.Segues.TaskToTaskProgress, sender: nil)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Pomodoro Productivity"
+        return Array(habits)[section].name
     }
     
 }
 
 extension HabitViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return habits.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        return Array(habits)[section].tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableViewCellIdentifiers.TaskTableViewCell, for: indexPath) as? TaskTableViewCell {
-            let task = tasks[indexPath.row]
+            let habit = Array(habits)[indexPath.section]
+            let task = habit.tasks[indexPath.row]
             cell.configureCell(task: task)
             return cell
         }
