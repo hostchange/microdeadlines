@@ -21,8 +21,8 @@
 		638CA1512018889F00275C71 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638CA1502018889F00275C71 /* SignInViewController.swift */; };
 		638CA1582018935D00275C71 /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638CA1572018935D00275C71 /* AddHabitViewController.swift */; };
 		638CA15B2018A0F100275C71 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638CA15A2018A0F100275C71 /* TaskTableViewCell.xib */; };
+		638CA15E2018CA7F00275C71 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638CA15D2018CA7F00275C71 /* Extensions.swift */; };
 		639E167C1FDCFCAB007AACB2 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E167B1FDCFCAB007AACB2 /* AddTaskViewController.swift */; };
-		639E167F1FDD0553007AACB2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E167E1FDD0553007AACB2 /* Extensions.swift */; };
 		639E16821FDD0D5B007AACB2 /* TaskProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E16811FDD0D5B007AACB2 /* TaskProgressViewController.swift */; };
 		73F91FF3CBBA53B104FF476F /* Pods_Microdeadlines.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A9945848E874158E3C53B7 /* Pods_Microdeadlines.framework */; };
 /* End PBXBuildFile section */
@@ -46,8 +46,8 @@
 		638CA1502018889F00275C71 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		638CA1572018935D00275C71 /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		638CA15A2018A0F100275C71 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
+		638CA15D2018CA7F00275C71 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		639E167B1FDCFCAB007AACB2 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
-		639E167E1FDD0553007AACB2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		639E16811FDD0D5B007AACB2 /* TaskProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressViewController.swift; sourceTree = "<group>"; };
 		C389B8C257E804DAFFD6CE63 /* Pods-Microdeadlines.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Microdeadlines.release.xcconfig"; path = "Pods/Target Support Files/Pods-Microdeadlines/Pods-Microdeadlines.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +85,7 @@
 		630230121FDCE1B600B9747C /* Microdeadlines */ = {
 			isa = PBXGroup;
 			children = (
+				638CA15C2018CA6D00275C71 /* Extensions */,
 				6302302F1FDCE7F000B9747C /* AppDelegate */,
 				6302302C1FDCE7CC00B9747C /* Controllers */,
 				6302302A1FDCE7C300B9747C /* Models */,
@@ -131,7 +132,6 @@
 				630230261FDCE36100B9747C /* Constants.swift */,
 				6302301F1FDCE1B600B9747C /* Info.plist */,
 				638CA14B201884BE00275C71 /* GoogleService-Info.plist */,
-				639E167E1FDD0553007AACB2 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -156,8 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				6342BF081FDCF239001E2D0C /* HabitViewController.swift */,
-				639E167B1FDCFCAB007AACB2 /* AddTaskViewController.swift */,
-				631E29BF2013BAE10023E5F2 /* EditTaskViewController.swift */,
 				638CA1572018935D00275C71 /* AddHabitViewController.swift */,
 			);
 			path = Habit;
@@ -175,8 +173,18 @@
 			isa = PBXGroup;
 			children = (
 				639E16811FDD0D5B007AACB2 /* TaskProgressViewController.swift */,
+				631E29BF2013BAE10023E5F2 /* EditTaskViewController.swift */,
+				639E167B1FDCFCAB007AACB2 /* AddTaskViewController.swift */,
 			);
 			path = Task;
+			sourceTree = "<group>";
+		};
+		638CA15C2018CA6D00275C71 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				638CA15D2018CA7F00275C71 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		69C42696002D7258B72098B2 /* Frameworks */ = {
@@ -368,10 +376,10 @@
 				630230141FDCE1B600B9747C /* AppDelegate.swift in Sources */,
 				638CA14920187BFB00275C71 /* Habit.swift in Sources */,
 				638CA1582018935D00275C71 /* AddHabitViewController.swift in Sources */,
+				638CA15E2018CA7F00275C71 /* Extensions.swift in Sources */,
 				638CA1512018889F00275C71 /* SignInViewController.swift in Sources */,
 				631E29C02013BAE10023E5F2 /* EditTaskViewController.swift in Sources */,
 				630230271FDCE36100B9747C /* Constants.swift in Sources */,
-				639E167F1FDD0553007AACB2 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

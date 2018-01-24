@@ -2,8 +2,8 @@
 //  Extensions.swift
 //  Microdeadlines
 //
-//  Created by Jayven Nhan on 12/10/17.
-//  Copyright © 2017 Jayven Nhan. All rights reserved.
+//  Created by Jayven Nhan on 1/24/18.
+//  Copyright © 2018 Jayven Nhan. All rights reserved.
 //
 
 import UIKit
@@ -18,11 +18,24 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
-// Realm - Table View
-
+// Table View
 extension UITableView {
+    
+    // Register Nib
+    func registerNib(name: String = Constants.TableViewCellIdentifiers.TaskTableViewCell) {
+        let nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
+        let identifier = Constants.TableViewCellIdentifiers.TaskTableViewCell
+        self.register(nib, forCellReuseIdentifier: identifier)
+        self.sectionHeaderHeight = 50
+        self.rowHeight = 100
+    }
+    
+    // Realm
     func applyChanges<T>(changes: RealmCollectionChange<T>) {
         switch changes {
         case .initial: reloadData()

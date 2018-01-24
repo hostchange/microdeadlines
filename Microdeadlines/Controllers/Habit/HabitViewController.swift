@@ -41,10 +41,7 @@ class HabitViewController: UIViewController {
     }
     
     func setUpTableView() {
-        let nib = UINib(nibName: "TaskTableViewCell", bundle: nil)
-        let identifier = Constants.TableViewCellIdentifiers.TaskTableViewCell
-        tableView.register(nib, forCellReuseIdentifier: identifier)
-        
+        tableView.registerNib()
         tableView.delegate = self
         tableView.dataSource = self
     }

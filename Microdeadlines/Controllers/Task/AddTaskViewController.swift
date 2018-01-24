@@ -14,6 +14,8 @@ class AddTaskViewController: UIViewController {
     
     let realm = try! Realm()
     
+    var habit = Habit()
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var timeLabel: UILabel!
@@ -42,10 +44,6 @@ class AddTaskViewController: UIViewController {
         timeLabel.text = "\(time) MIN"
     }
     
-    @IBAction func cancelBarButtonItemDidTouch(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     @IBAction func doneBarButtonItemDidTouch(_ sender: UIBarButtonItem) {
         createNewTask()
     }
@@ -57,11 +55,9 @@ class AddTaskViewController: UIViewController {
             let task = Task()
             task.name = taskName
             task.countDownTimeInMinutes = time
-            task.creationDate = Date()
-            task.numberOfTimesCompleted = 0
-            realm.add(task)
+            habit.tasks.append(task)
         }
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 }
 
