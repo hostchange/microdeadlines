@@ -108,6 +108,20 @@ MIN</string>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of Successes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee6-m6-uMd">
+                                <rect key="frame" x="155" y="467" width="138" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQL-Cg-Jqn">
+                                <rect key="frame" x="88" y="467" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -119,6 +133,7 @@ MIN</string>
                         <viewLayoutGuide key="safeArea" id="GXk-Zz-VqI"/>
                     </view>
                     <connections>
+                        <outlet property="numberOfSuccesses" destination="gQL-Cg-Jqn" id="D71-OF-t3P"/>
                         <outlet property="progressView" destination="ACP-nz-K2j" id="pvA-Lo-B2o"/>
                         <outlet property="startButton" destination="l4Q-Jp-wLH" id="xI9-Ue-Vm7"/>
                         <outlet property="timeLabel" destination="E7V-M1-jvy" id="lHk-m0-jkB"/>

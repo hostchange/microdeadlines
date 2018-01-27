@@ -17,6 +17,9 @@ class TaskProgressViewController: UIViewController {
     @IBOutlet weak var progressView: MKRingProgressView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var numberOfSuccesses: UILabel! {
+        self.numberOfSuccesses.text = "\(task.numberOfTimesCompleted)\n"
+    }
     
     let timer = Each(1).seconds
     let shapeLayer = CAShapeLayer()
@@ -68,6 +71,7 @@ class TaskProgressViewController: UIViewController {
             let progress = 1 - (numberOfSecondsProgressed / totalNumberOfCountDownSeconds)
             print("PROGRESS:", progress)
             if progress <= 0 {
+                self.task.numberOfTimesCompleted+=1
                 return .stop
             }
             
@@ -90,6 +94,7 @@ class TaskProgressViewController: UIViewController {
         startButton.isEnabled = false
         startTimer()
         registerBackgroundTask()
+        self.task.numberOfTimesStarted+=1
     }
     
     func registerBackgroundTask() {

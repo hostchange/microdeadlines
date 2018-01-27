@@ -14,4 +14,5 @@ class Task: Object {
     @objc dynamic var countDownTimeInMinutes = Int()
     @objc dynamic var creationDate = Date()
     @objc dynamic var numberOfTimesCompleted = 0
+    @objc dynamic var numberOfTimesStarted = 0
 }

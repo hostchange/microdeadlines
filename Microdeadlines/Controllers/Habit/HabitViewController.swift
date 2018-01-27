@@ -15,7 +15,7 @@ class HabitViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     fileprivate lazy var habits: Results<Habit> =  {
-        let sortProperties = [SortDescriptor(keyPath: "creationDate", ascending: false)]
+        let sortProperties = [SortDescriptor(keyPath: "creationDate", ascending: true)]
         return self.realm.objects(Habit.self).sorted(by: sortProperties)
     }()
     
@@ -78,7 +78,7 @@ class HabitViewController: UIViewController {
                 habit.name = "Pomodoro Productivity"
                 habit.tasks.append(task1)
                 habit.tasks.append(task2)
-                
+
                 realm.add(habit)
             }
             return
