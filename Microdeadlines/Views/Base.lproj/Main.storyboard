@@ -108,34 +108,40 @@ MIN</string>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of Successes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee6-m6-uMd">
-                                <rect key="frame" x="155" y="467" width="138" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQL-Cg-Jqn">
-                                <rect key="frame" x="88" y="467" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ExL-fY-ZsF">
+                                <rect key="frame" x="99.5" y="467" width="176" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQL-Cg-Jqn">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Successes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ee6-m6-uMd">
+                                        <rect key="frame" x="52" y="3" width="124" height="14.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GXk-Zz-VqI" firstAttribute="trailing" secondItem="98o-G4-NeM" secondAttribute="trailing" constant="60" id="BKJ-iu-co9"/>
                             <constraint firstItem="98o-G4-NeM" firstAttribute="centerX" secondItem="GrX-QJ-yc6" secondAttribute="centerX" id="Cta-4u-3Bf"/>
+                            <constraint firstItem="ExL-fY-ZsF" firstAttribute="centerX" secondItem="GXk-Zz-VqI" secondAttribute="centerX" id="UXO-nt-saK"/>
                             <constraint firstItem="98o-G4-NeM" firstAttribute="leading" secondItem="GXk-Zz-VqI" secondAttribute="leading" constant="60" id="bWE-jH-CEy"/>
                             <constraint firstItem="98o-G4-NeM" firstAttribute="centerY" secondItem="GrX-QJ-yc6" secondAttribute="centerY" id="dg9-rQ-QOk"/>
+                            <constraint firstItem="ExL-fY-ZsF" firstAttribute="top" secondItem="98o-G4-NeM" secondAttribute="bottom" constant="8" id="wx0-jg-188"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GXk-Zz-VqI"/>
                     </view>
                     <connections>
-                        <outlet property="numberOfSuccesses" destination="gQL-Cg-Jqn" id="D71-OF-t3P"/>
                         <outlet property="progressView" destination="ACP-nz-K2j" id="pvA-Lo-B2o"/>
                         <outlet property="startButton" destination="l4Q-Jp-wLH" id="xI9-Ue-Vm7"/>
+                        <outlet property="statsDescriptionLabel" destination="ee6-m6-uMd" id="GUI-2u-TH9"/>
+                        <outlet property="statsLabel" destination="gQL-Cg-Jqn" id="DUl-ev-OL6"/>
                         <outlet property="timeLabel" destination="E7V-M1-jvy" id="lHk-m0-jkB"/>
                     </connections>
                 </viewController>

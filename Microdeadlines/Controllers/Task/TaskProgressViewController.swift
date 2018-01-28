@@ -12,20 +12,39 @@ import Each
 import SwiftyTimer
 import AudioToolbox
 
+enum StatsState {
+    case numSuccess, successRate
+}
+
 class TaskProgressViewController: UIViewController {
     
     @IBOutlet weak var progressView: MKRingProgressView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var numberOfSuccesses: UILabel! {
-        self.numberOfSuccesses.text = "\(task.numberOfTimesCompleted)\n"
+    @IBOutlet weak var statsLabel: UILabel! {
+        didSet {
+            statsState = .numSuccess
+        }
     }
+    @IBOutlet weak var statsDescriptionLabel: UILabel!
     
     let timer = Each(1).seconds
     let shapeLayer = CAShapeLayer()
     var task: Task!
     var backgroundTask: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
-
+    var statsState:StatsState = .numSuccess {
+        didSet {
+            switch statsState {
+            case .numSuccess:
+                self.statsDescriptionLabel.text = "Number of Successes"
+                self.statsLabel.text = "\(self.task.numberOfTimesCompleted)"
+                break
+            case .successRate:
+                self.statsDescriptionLabel.text = "Success Rate"
+                self.statsLabel.text = "\(self.task.successRate)%"
+            }
+        }
+    }
     
     var pulsatingLayer = CAShapeLayer()
     
@@ -71,7 +90,7 @@ class TaskProgressViewController: UIViewController {
             let progress = 1 - (numberOfSecondsProgressed / totalNumberOfCountDownSeconds)
             print("PROGRESS:", progress)
             if progress <= 0 {
-                self.task.numberOfTimesCompleted+=1
+                self.task.numberOfTimesCompleted += 1
                 return .stop
             }
             
@@ -94,7 +113,8 @@ class TaskProgressViewController: UIViewController {
         startButton.isEnabled = false
         startTimer()
         registerBackgroundTask()
-        self.task.numberOfTimesStarted+=1
+        self.task.numberOfTimesStarted += 1
+        statsState = .successRate
     }
     
     func registerBackgroundTask() {

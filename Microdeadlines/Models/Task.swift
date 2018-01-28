@@ -15,4 +15,18 @@ class Task: Object {
     @objc dynamic var creationDate = Date()
     @objc dynamic var numberOfTimesCompleted = 0
     @objc dynamic var numberOfTimesStarted = 0
+    @objc dynamic var successRate:Int {
+        return (numberOfTimesStarted == 0 && numberOfTimesCompleted == 0) ? 100: (numberOfTimesStarted / numberOfTimesCompleted)
+    }
+    
+    func convertToTaskRealm() -> TaskRealm {
+        
+    }
+}
+
+class TaskRealm:Object {
+    
+    func saveToDrive() {
+        
+    }
 }
