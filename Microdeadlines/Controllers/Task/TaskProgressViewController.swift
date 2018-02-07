@@ -11,6 +11,7 @@ import MKRingProgressView
 import Each
 import SwiftyTimer
 import AudioToolbox
+import RealmSwift
 
 enum StatsState {
     case numSuccess, successRate
@@ -45,6 +46,8 @@ class TaskProgressViewController: UIViewController {
             }
         }
     }
+    
+    let realm = try! Realm()
     
     var pulsatingLayer = CAShapeLayer()
     
@@ -81,7 +84,6 @@ class TaskProgressViewController: UIViewController {
         
         shapeLayer.add(basicAnimation, forKey: "urSoBasic")
         
-        
         let totalNumberOfCountDownSeconds = Double(task.countDownTimeInMinutes).minute.seconds
         var numberOfSecondsProgressed = Double(0).seconds
         let startDate = Date(timeIntervalSince1970: 0)
@@ -90,7 +92,7 @@ class TaskProgressViewController: UIViewController {
             let progress = 1 - (numberOfSecondsProgressed / totalNumberOfCountDownSeconds)
             print("PROGRESS:", progress)
             if progress <= 0 {
-                self.task.numberOfTimesCompleted += 1
+                self.incrementTaskCompleted()
                 return .stop
             }
             
@@ -113,8 +115,20 @@ class TaskProgressViewController: UIViewController {
         startButton.isEnabled = false
         startTimer()
         registerBackgroundTask()
-        self.task.numberOfTimesStarted += 1
         statsState = .successRate
+        incrementTaskStarted()
+    }
+    
+    func incrementTaskStarted() {
+        try! realm.write {
+            self.task.numberOfTimesStarted += 1
+        }
+    }
+    
+    func incrementTaskCompleted() {
+        try! realm.write {
+            self.task.numberOfTimesCompleted += 1
+        }
     }
     
     func registerBackgroundTask() {

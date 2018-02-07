@@ -19,9 +19,9 @@ class Task: Object {
         return (numberOfTimesStarted == 0 && numberOfTimesCompleted == 0) ? 100: (numberOfTimesStarted / numberOfTimesCompleted)
     }
     
-    func convertToTaskRealm() -> TaskRealm {
-        
-    }
+//    func convertToTaskRealm() -> TaskRealm {
+//
+//    }
 }
 
 class TaskRealm:Object {

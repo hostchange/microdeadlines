@@ -184,7 +184,7 @@ MIN</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyW-7x-tP7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1999" y="531"/>
+            <point key="canvasLocation" x="2785" y="739"/>
         </scene>
         <!--HABIT-->
         <scene sceneID="IRV-36-KQ1">
@@ -451,7 +451,7 @@ MIN</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MS9-yK-Ob0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2081" y="739"/>
+            <point key="canvasLocation" x="1969" y="739"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YH9-wu-Vw2">

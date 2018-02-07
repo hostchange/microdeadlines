@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0920"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "860B27A841FFC575AC302116143A9E9A"
+               BlueprintIdentifier = "F8B257B3081FA0D4209CE66B395559ED"
                BuildableName = "Pods_Microdeadlines.framework"
                BlueprintName = "Pods-Microdeadlines"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "860B27A841FFC575AC302116143A9E9A"
+            BlueprintIdentifier = "F8B257B3081FA0D4209CE66B395559ED"
             BuildableName = "Pods_Microdeadlines.framework"
             BlueprintName = "Pods-Microdeadlines"
             ReferencedContainer = "container:Pods.xcodeproj">
