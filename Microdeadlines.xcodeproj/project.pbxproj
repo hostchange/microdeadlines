@@ -25,6 +25,8 @@
 		639E167C1FDCFCAB007AACB2 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E167B1FDCFCAB007AACB2 /* AddTaskViewController.swift */; };
 		639E16821FDD0D5B007AACB2 /* TaskProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639E16811FDD0D5B007AACB2 /* TaskProgressViewController.swift */; };
 		73F91FF3CBBA53B104FF476F /* Pods_Microdeadlines.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A9945848E874158E3C53B7 /* Pods_Microdeadlines.framework */; };
+		D59C6020202C0BF5004ADB19 /* HabitLibraryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59C601F202C0BF5004ADB19 /* HabitLibraryViewCell.swift */; };
+		D59C6024202C0E20004ADB19 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59C6023202C0E20004ADB19 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		639E167B1FDCFCAB007AACB2 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		639E16811FDD0D5B007AACB2 /* TaskProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressViewController.swift; sourceTree = "<group>"; };
 		C389B8C257E804DAFFD6CE63 /* Pods-Microdeadlines.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Microdeadlines.release.xcconfig"; path = "Pods/Target Support Files/Pods-Microdeadlines/Pods-Microdeadlines.release.xcconfig"; sourceTree = "<group>"; };
+		D59C601F202C0BF5004ADB19 /* HabitLibraryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitLibraryViewCell.swift; sourceTree = "<group>"; };
+		D59C6023202C0E20004ADB19 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				638CA14820187BFB00275C71 /* Habit.swift */,
+				D59C6023202C0E20004ADB19 /* Category.swift */,
 				6342BF0D1FDCF778001E2D0C /* Task.swift */,
 			);
 			path = Models;
@@ -111,6 +116,7 @@
 				6302301C1FDCE1B600B9747C /* LaunchScreen.storyboard */,
 				630230171FDCE1B600B9747C /* Main.storyboard */,
 				6342BF0A1FDCF4C8001E2D0C /* TaskTableViewCell.swift */,
+				D59C601F202C0BF5004ADB19 /* HabitLibraryViewCell.swift */,
 				638CA15A2018A0F100275C71 /* TaskTableViewCell.xib */,
 			);
 			path = Views;
@@ -360,6 +366,8 @@
 				638CA1512018889F00275C71 /* SignInViewController.swift in Sources */,
 				631E29C02013BAE10023E5F2 /* EditTaskViewController.swift in Sources */,
 				630230271FDCE36100B9747C /* Constants.swift in Sources */,
+				D59C6020202C0BF5004ADB19 /* HabitLibraryViewCell.swift in Sources */,
+				D59C6024202C0E20004ADB19 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
