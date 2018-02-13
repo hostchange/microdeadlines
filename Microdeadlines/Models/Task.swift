@@ -13,10 +13,18 @@ class Task: Object {
     @objc dynamic var name = String()
     @objc dynamic var countDownTimeInMinutes = Int()
     @objc dynamic var creationDate = Date()
-    @objc dynamic var numberOfTimesCompleted = 0
-    @objc dynamic var numberOfTimesStarted = 0
+    @objc dynamic var numberOfTimesCompleted = 1
+    @objc dynamic var numberOfTimesStarted = 1
     @objc dynamic var successRate:Int {
-        return (numberOfTimesStarted == 0 && numberOfTimesCompleted == 0) ? 100: (numberOfTimesStarted / numberOfTimesCompleted)
+        if (numberOfTimesStarted == 0 && numberOfTimesCompleted == 0) {
+            return 100
+        }
+        else if (numberOfTimesStarted > 0 && numberOfTimesCompleted > 0){
+            return (100)*(numberOfTimesStarted / numberOfTimesCompleted )
+        }
+        else{
+            return 100
+        }
     }
     
 //    func convertToTaskRealm() -> TaskRealm {

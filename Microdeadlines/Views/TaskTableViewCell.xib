@@ -50,6 +50,7 @@ MIN</string>
                 <outlet property="taskNameLabel" destination="f36-PP-Yiw" id="SWy-hf-YaN"/>
                 <outlet property="timeLabel" destination="dAS-QT-A63" id="G5C-Ow-4Iu"/>
             </connections>
+            <point key="canvasLocation" x="-31" y="-19"/>
         </tableViewCell>
     </objects>
 </document>
