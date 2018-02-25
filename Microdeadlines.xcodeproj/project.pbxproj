@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D6EE74F2042DE1F00A19A79 /* BigCurvedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EE74E2042DE1F00A19A79 /* BigCurvedButton.swift */; };
+		4DCB27AF20429F1300CB5D64 /* LargeHabitsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB27AE20429F1300CB5D64 /* LargeHabitsCell.swift */; };
+		4DCB27B12042ADCD00CB5D64 /* LargeHabitTextBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCB27B02042ADCD00CB5D64 /* LargeHabitTextBlock.swift */; };
 		630230141FDCE1B600B9747C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630230131FDCE1B600B9747C /* AppDelegate.swift */; };
 		630230191FDCE1B600B9747C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630230171FDCE1B600B9747C /* Main.storyboard */; };
 		6302301B1FDCE1B600B9747C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6302301A1FDCE1B600B9747C /* Assets.xcassets */; };
@@ -32,6 +35,9 @@
 /* Begin PBXFileReference section */
 		04A9945848E874158E3C53B7 /* Pods_Microdeadlines.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Microdeadlines.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BDC93A8681FF8A97F21422B /* Pods-Microdeadlines.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Microdeadlines.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Microdeadlines/Pods-Microdeadlines.debug.xcconfig"; sourceTree = "<group>"; };
+		4D6EE74E2042DE1F00A19A79 /* BigCurvedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigCurvedButton.swift; sourceTree = "<group>"; };
+		4DCB27AE20429F1300CB5D64 /* LargeHabitsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeHabitsCell.swift; sourceTree = "<group>"; };
+		4DCB27B02042ADCD00CB5D64 /* LargeHabitTextBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeHabitTextBlock.swift; sourceTree = "<group>"; };
 		630230101FDCE1B600B9747C /* Microdeadlines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Microdeadlines.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		630230131FDCE1B600B9747C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		630230181FDCE1B600B9747C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4DCB27B22042ADDA00CB5D64 /* LargeHabitStuff */ = {
+			isa = PBXGroup;
+			children = (
+				4DCB27AE20429F1300CB5D64 /* LargeHabitsCell.swift */,
+				4DCB27B02042ADCD00CB5D64 /* LargeHabitTextBlock.swift */,
+			);
+			path = LargeHabitStuff;
+			sourceTree = "<group>";
+		};
 		630230071FDCE1B600B9747C = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +131,9 @@
 				6302301C1FDCE1B600B9747C /* LaunchScreen.storyboard */,
 				630230171FDCE1B600B9747C /* Main.storyboard */,
 				6342BF0A1FDCF4C8001E2D0C /* TaskTableViewCell.swift */,
+				4DCB27B22042ADDA00CB5D64 /* LargeHabitStuff */,
 				D59C601F202C0BF5004ADB19 /* HabitLibraryViewCell.swift */,
+				4D6EE74E2042DE1F00A19A79 /* BigCurvedButton.swift */,
 				638CA15A2018A0F100275C71 /* TaskTableViewCell.xib */,
 			);
 			path = Views;
@@ -355,11 +372,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6342BF091FDCF239001E2D0C /* HabitViewController.swift in Sources */,
+				4D6EE74F2042DE1F00A19A79 /* BigCurvedButton.swift in Sources */,
 				639E167C1FDCFCAB007AACB2 /* AddTaskViewController.swift in Sources */,
 				6342BF0B1FDCF4C8001E2D0C /* TaskTableViewCell.swift in Sources */,
+				4DCB27AF20429F1300CB5D64 /* LargeHabitsCell.swift in Sources */,
 				6342BF0E1FDCF778001E2D0C /* Task.swift in Sources */,
 				639E16821FDD0D5B007AACB2 /* TaskProgressViewController.swift in Sources */,
 				630230141FDCE1B600B9747C /* AppDelegate.swift in Sources */,
+				4DCB27B12042ADCD00CB5D64 /* LargeHabitTextBlock.swift in Sources */,
 				638CA14920187BFB00275C71 /* Habit.swift in Sources */,
 				638CA1582018935D00275C71 /* AddHabitViewController.swift in Sources */,
 				638CA15E2018CA7F00275C71 /* Extensions.swift in Sources */,

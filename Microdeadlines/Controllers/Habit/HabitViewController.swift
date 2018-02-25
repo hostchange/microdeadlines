@@ -41,6 +41,17 @@ class HabitViewController: UIViewController {
     
     func setUpTableView() {
         tableView.registerNib()
+        tableView.register(LargeHabitsCell.self, forCellReuseIdentifier: Constants.TableViewCellIdentifiers.LargeHabitsCell)
+        
+        let btnWidth = self.view.frame.width*0.85
+        let origin = (self.view.frame.width - btnWidth)/2
+        let newHabitButton = BigCurvedButton(frame: CGRect(x: origin, y: 0, width: btnWidth, height: 44))
+        newHabitButton.addTarget(self, action: #selector(self.addHabit), for: .touchDown)
+        newHabitButton.setTitle("+ new habit", for: .normal)
+        let footerView = UIView()
+        footerView.addSubview(newHabitButton)
+        tableView.tableFooterView = footerView
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -105,7 +116,7 @@ class HabitViewController: UIViewController {
         }
     }
 
-    @IBAction func addTaskButtonItemDidTouch(_ sender: UIBarButtonItem) {
+    @objc func addHabit() {
         performSegue(withIdentifier: Constants.Segues.HabitToAddHabit, sender: nil)
     }
 }
@@ -142,34 +153,44 @@ extension HabitViewController: UITableViewDelegate {
         performSegue(withIdentifier: Constants.Segues.TaskToTaskProgress, sender: nil)
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Array(habits)[section].name
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return Array(habits)[section].name
+//    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return indexPath.row == 0 ? 200 : 44
     }
     
 }
 
 extension HabitViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return habits.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Array(habits)[section].tasks.count
+        return Array(habits)[section].tasks.count - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableViewCellIdentifiers.TaskTableViewCell, for: indexPath) as? TaskTableViewCell {
+        if indexPath.row > 1, let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableViewCellIdentifiers.TaskTableViewCell, for: indexPath) as? TaskTableViewCell {
             let habit = Array(habits)[indexPath.section]
-            let task = habit.tasks[indexPath.row]
+            let task = habit.tasks[indexPath.row + 1]
             cell.configureCell(task: task)
+            return cell
+        } else if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableViewCellIdentifiers.LargeHabitsCell, for: indexPath) as? LargeHabitsCell {
+            let habit = Array(habits)[indexPath.section]
+            let taskL = habit.tasks[indexPath.row]
+            let taskR = habit.tasks[indexPath.row + 1]
+            cell.configureCell(taskL: taskL, taskR: taskR)
             return cell
         }
         return TaskTableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 50
+//    }
     
 }
 

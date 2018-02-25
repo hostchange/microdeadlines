@@ -32,6 +32,7 @@ struct Constants {
     // MARK: Table View Cell Identifiers
     struct TableViewCellIdentifiers {
         static let TaskTableViewCell = "TaskTableViewCell"
+        static let LargeHabitsCell = "LargeHabitsCell"
     }
     
     // MARK: Collection Reusable View Identifiers
@@ -61,6 +62,11 @@ struct Constants {
     // MARK: Character Limitation
     struct CharactersLimitation {
         static let TaskName = 20
+    }
+    
+    //MARK: Colors
+    struct Colors {
+        static let greyishBlack = UIColor(red: 61/255, green: 61/255, blue: 61/255, alpha: 1.0)
     }
 }
 
