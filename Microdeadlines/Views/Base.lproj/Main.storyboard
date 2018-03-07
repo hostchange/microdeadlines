@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O42-sy-bkd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O42-sy-bkd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -482,7 +482,7 @@ MIN</string>
             </objects>
             <point key="canvasLocation" x="430" y="1576"/>
         </scene>
-        <!--LIBRARY-->
+        <!--HABIT STORE-->
         <scene sceneID="bYM-hz-wAK">
             <objects>
                 <viewController id="og6-nq-ptY" sceneMemberID="viewController">
@@ -493,16 +493,18 @@ MIN</string>
                             <segue destination="T9r-vP-pLL" kind="embed" id="E4n-Iv-kFW"/>
                         </connections>
                     </containerView>
-                    <navigationItem key="navigationItem" title="LIBRARY" largeTitleDisplayMode="always" id="7wR-3Y-h4S"/>
+                    <navigationItem key="navigationItem" title="HABIT STORE" largeTitleDisplayMode="always" id="7wR-3Y-h4S">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="cgR-qj-Oq1"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r3G-Lv-FVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="428" y="2261.0194902548728"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Habit Store Table View Controller-->
         <scene sceneID="yeB-kS-GgB">
             <objects>
-                <tableViewController id="T9r-vP-pLL" sceneMemberID="viewController">
+                <tableViewController id="T9r-vP-pLL" customClass="HabitStoreTableViewController" customModule="Microdeadlines" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eft-8o-npT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -518,32 +520,8 @@ MIN</string>
                         <sections>
                             <tableViewSection id="ol5-Zc-ztb">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="4" indentationWidth="10" textLabel="viN-pX-EHh" detailTextLabel="WsO-Y3-hW2" rowHeight="75" style="IBUITableViewCellStyleSubtitle" id="Nq8-1G-CwD">
-                                        <rect key="frame" x="0.0" y="21" width="375" height="75"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nq8-1G-CwD" id="m41-6G-WqG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="[featured]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="viN-pX-EHh">
-                                                    <rect key="frame" x="56" y="4" width="199.5" height="53"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="44"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Some of our favorite habits all in one place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WsO-Y3-hW2">
-                                                    <rect key="frame" x="56" y="57" width="240.5" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="4" indentationWidth="10" textLabel="PRB-9E-Nmz" detailTextLabel="6Ys-EW-o7e" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="T3r-0e-qFq">
-                                        <rect key="frame" x="0.0" y="96" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="21" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T3r-0e-qFq" id="KR5-pu-hk1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
@@ -558,6 +536,30 @@ MIN</string>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Your day starts right now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Ys-EW-o7e">
                                                     <rect key="frame" x="56" y="38.5" width="141.5" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="4" indentationWidth="10" textLabel="viN-pX-EHh" detailTextLabel="WsO-Y3-hW2" rowHeight="75" style="IBUITableViewCellStyleSubtitle" id="Nq8-1G-CwD">
+                                        <rect key="frame" x="0.0" y="81" width="375" height="75"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nq8-1G-CwD" id="m41-6G-WqG">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="[featured]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="viN-pX-EHh">
+                                                    <rect key="frame" x="56" y="4" width="199.5" height="53"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="44"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Some of our favorite habits all in one place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WsO-Y3-hW2">
+                                                    <rect key="frame" x="56" y="57" width="240.5" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -670,6 +672,13 @@ MIN</string>
                             <outlet property="delegate" destination="T9r-vP-pLL" id="hCI-x4-od1"/>
                         </connections>
                     </tableView>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="70G-Tm-3Iz">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="pullToRefresh:" destination="T9r-vP-pLL" eventType="valueChanged" id="tMF-k1-pR4"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOW-AL-FfW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

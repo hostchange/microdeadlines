@@ -10,5 +10,10 @@ target 'Microdeadlines' do
   pod 'RealmSwift'
   pod 'MKRingProgressView'
   pod 'Each'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Crash'
+  pod 'Firebase/Auth'
+  pod 'Kingfisher'
 
 end
