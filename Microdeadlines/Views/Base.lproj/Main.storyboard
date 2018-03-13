@@ -254,7 +254,7 @@ MIN</string>
                                             </slider>
                                         </subviews>
                                     </stackView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="TASK NAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TRl-YS-WPv">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TRl-YS-WPv">
                                         <rect key="frame" x="0.0" y="80" width="335" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="a19-5T-3Qe"/>
@@ -730,4 +730,5 @@ MIN</string>
         <image name="store" width="24" height="24"/>
         <image name="story" width="24" height="24"/>
     </resources>
+    <color key="tintColor" red="0.10231219860548882" green="0.11367595864134539" blue="0.14167746113989632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
