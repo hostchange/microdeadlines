@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LargeHabitTextBlock: UIView {
+class LargeHabitTextBlock: UIButton {
 
     var timeLabel: UILabel!
     var taskNameLabel: UILabel!

@@ -45,10 +45,11 @@ class HabitViewController: UIViewController {
         
         let btnWidth = self.view.frame.width*0.85
         let origin = (self.view.frame.width - btnWidth)/2
-        let newHabitButton = BigCurvedButton(frame: CGRect(x: origin, y: 0, width: btnWidth, height: 44))
-        newHabitButton.addTarget(self, action: #selector(self.addHabit), for: .touchDown)
+        let btnHeight: CGFloat = 44
+        let newHabitButton = BigCurvedButton(frame: CGRect(x: origin, y: 0, width: btnWidth, height: btnHeight))
+        newHabitButton.addTarget(self, action: #selector(self.addHabit), for: .touchUpInside)
         newHabitButton.setTitle("+ new habit", for: .normal)
-        let footerView = UIView()
+        let footerView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: self.view.bounds.width, height: btnHeight)))
         footerView.addSubview(newHabitButton)
         tableView.tableFooterView = footerView
         
@@ -117,7 +118,10 @@ class HabitViewController: UIViewController {
     }
 
     @objc func addHabit() {
-        performSegue(withIdentifier: Constants.Segues.HabitToAddHabit, sender: nil)
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "addTaskView") as? AddTaskViewController {
+            vc.habit = self.habits.first!
+            self.show(vc, sender: nil)
+        }
     }
 }
 
@@ -147,10 +151,12 @@ extension HabitViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let habit = Array(habits)[indexPath.section]
-        let task = habit.tasks[indexPath.row]
-        selectedTask = task
-        performSegue(withIdentifier: Constants.Segues.TaskToTaskProgress, sender: nil)
+        if indexPath.row > 0 {
+            let habit = Array(habits)[indexPath.section]
+            let task = habit.tasks[indexPath.row + 1]
+            selectedTask = task
+            performSegue(withIdentifier: Constants.Segues.TaskToTaskProgress, sender: nil)
+        }
     }
     
 //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -158,7 +164,7 @@ extension HabitViewController: UITableViewDelegate {
 //    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.row == 0 ? 200 : 44
+        return indexPath.row == 0 ? 200 : 100
     }
     
 }
@@ -173,7 +179,7 @@ extension HabitViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row > 1, let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableViewCellIdentifiers.TaskTableViewCell, for: indexPath) as? TaskTableViewCell {
+        if indexPath.row > 0, let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TableViewCellIdentifiers.TaskTableViewCell, for: indexPath) as? TaskTableViewCell {
             let habit = Array(habits)[indexPath.section]
             let task = habit.tasks[indexPath.row + 1]
             cell.configureCell(task: task)
@@ -183,9 +189,20 @@ extension HabitViewController: UITableViewDataSource {
             let taskL = habit.tasks[indexPath.row]
             let taskR = habit.tasks[indexPath.row + 1]
             cell.configureCell(taskL: taskL, taskR: taskR)
+            cell.leftLargeBlock.addTarget(self, action: #selector(self.taskSelected), for: .touchUpInside)
+            cell.leftLargeBlock.tag = indexPath.row
+            cell.rightLargeBlock.addTarget(self, action: #selector(self.taskSelected), for: .touchUpInside)
+            cell.rightLargeBlock.tag = indexPath.row + 1
             return cell
         }
         return TaskTableViewCell()
+    }
+    
+    @objc func taskSelected(sender: UIButton) {
+        let habit = Array(habits)[0]
+        let task = habit.tasks[sender.tag]
+        selectedTask = task
+        performSegue(withIdentifier: Constants.Segues.TaskToTaskProgress, sender: nil)
     }
     
 //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -223,7 +223,7 @@ MIN</string>
         <!--New Task-->
         <scene sceneID="ZoI-vd-IUH">
             <objects>
-                <viewController title="New Task" hidesBottomBarWhenPushed="YES" id="GVh-IV-H4e" customClass="AddTaskViewController" customModule="Microdeadlines" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addTaskView" title="New Task" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GVh-IV-H4e" customClass="AddTaskViewController" customModule="Microdeadlines" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="10P-yx-5eX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -274,7 +274,7 @@ MIN</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JNp-3x-a1c"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ADD TASK" id="16I-yg-6Xl">
+                    <navigationItem key="navigationItem" title="ADD HABIT" id="16I-yg-6Xl">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="eTI-bk-KS9">
                             <connections>
                                 <action selector="doneBarButtonItemDidTouch:" destination="GVh-IV-H4e" id="aVy-yV-7Co"/>
